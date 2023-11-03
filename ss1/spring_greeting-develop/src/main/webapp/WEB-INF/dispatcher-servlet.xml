@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--<context:component-scan>: Đây là một thẻ cấu hình cho phép quét và tìm kiếm các bean Spring trong gói com.codegym.controller.
+Các bean được tìm thấy sẽ được quản lý và sử dụng trong ứng dụng. -->
+    <context:component-scan base-package="com.codegym.controller"/>
+<!--<mvc:annotation-driven>: Thẻ này cho phép việc sử dụng các annotation của Spring MVC
+ như @RequestMapping, @Controller, @ResponseBody,... trong ứng dụng.
+ Nó cung cấp hỗ trợ cho việc xử lý yêu cầu HTTP và phân giải các phần
+ tử như @PathVariable, @RequestParam,...-->
+    <mvc:annotation-driven/>
+<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">:
+Đây là một bean cụ thể để cấu hình trình giải thư mục và tên tập tin của các view (JSP) trong ứng dụng.
+Trong trường hợp này, thư mục view được đặt là "/WEB-INF/views/" và tất cả các tệp JSP sẽ có phần mở rộng ".jsp".
+ Điều này cho phép Spring tìm và hiển thị các tệp JSP tương ứng với các controller trong ứng dụng.-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
