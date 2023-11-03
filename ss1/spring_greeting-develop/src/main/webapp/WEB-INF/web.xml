@@ -13,6 +13,7 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+<!--    org.springframework.web.servlet.DispatcherServlet để sử dụng để tiếp nhận tất cả các yêu cầu có địa chỉ url được khai báo trong cặp thẻ <url-pattern>.-->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>

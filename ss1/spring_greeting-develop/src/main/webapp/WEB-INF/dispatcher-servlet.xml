@@ -9,8 +9,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-<!--<context:component-scan>: Đây là một thẻ cấu hình cho phép quét và tìm kiếm các bean Spring trong gói com.codegym.controller.
-Các bean được tìm thấy sẽ được quản lý và sử dụng trong ứng dụng. -->
+<!--    sẽ giúp cho ứng dụng tham chiếu đến các lớp controllers.-->
     <context:component-scan base-package="com.codegym.controller"/>
 <!--<mvc:annotation-driven>: Thẻ này cho phép việc sử dụng các annotation của Spring MVC
  như @RequestMapping, @Controller, @ResponseBody,... trong ứng dụng.
