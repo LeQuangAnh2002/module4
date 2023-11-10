@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="container" >
+  <div class="sidebar" th:replace="/layout :: sidebar"></div>
+    <div class="main">
+    <div class="top-bar" th:replace="/top-bar.html :: top-bar"></div>
+    <div class="wrapper" th:replace="/input.html :: wrapper"></div>
+    </div>
+  </div>
+
+</body>
+</html>
+

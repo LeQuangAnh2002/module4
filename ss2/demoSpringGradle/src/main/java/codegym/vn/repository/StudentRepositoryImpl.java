@@ -30,7 +30,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public void delete(Student student) {
-        if (studentMap.containsKey(student.getId())) {
+        if (!studentMap.containsKey(student.getId())) {
             studentMap.remove(student.getId());
         }
     }

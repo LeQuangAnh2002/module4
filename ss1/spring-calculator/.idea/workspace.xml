@@ -5,28 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a869c2e-c106-450f-9f67-babaf1159184" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../email-validate-gradle/src/main/java/codegym/vn/emailvalidategradle/config/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../email-validate-gradle/src/main/java/codegym/vn/emailvalidategradle/config/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../email-validate-gradle/src/main/java/codegym/vn/emailvalidategradle/controller/EmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../email-validate-gradle/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../email-validate-gradle/src/main/webapp/WEB-INF/view/success.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/src/main/java/com/codegym/springtimezone/TimeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-time-zone/src/main/webapp/WEB-INF/view/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency-conversion/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../currency-conversion/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency-conversion/src/main/java/codegym/vn/currencyconversion/controller/ConverterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../currency-conversion/src/main/java/codegym/vn/currencyconversion/controller/ConverterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/java/com/codegym/service/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss3/thuc_hanh/customer-management-thymeleaf/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/thuc_hanh/spring-mvc-form-tutorial/src/main/java/com/codegym/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/thuc_hanh/spring-mvc-form-tutorial/src/main/java/com/codegym/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/model/ProductForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/java/com/codegym/service/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/resources/upload_file.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/upload-file/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_greeting-develop/src/main/java/com/codegym/controller/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring_greeting-develop/src/main/java/com/codegym/controller/GreetingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_greeting-develop/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring_greeting-develop/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_greeting-develop/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring_greeting-develop/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thu-vien/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../thu-vien/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thu-vien/src/main/java/codegym/vn/thuvien/controller/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../thu-vien/src/main/java/codegym/vn/thuvien/controller/LibraryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss2/demoSpringGradle/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2/demoSpringGradle/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thu-vien/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../thu-vien/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +90,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "3f1234f3fbd9101cd37cc50018cfd49a",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -185,6 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1699016686755</updated>
       <workItem from="1699016688022" duration="2416000" />
+      <workItem from="1699413181761" duration="555000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="top-bar" th:fragment="top-bar">
+  <div class="search">
+    <input type="text" name="search" id="search" placeholder="Search here">
+    <label for="search"><i class="fas fa-search"></i></label>
+  </div>
+  <div class="user">
+    <i class="fas fa-user"></i>
+  </div>
+</div>
+</body>
+</html>
