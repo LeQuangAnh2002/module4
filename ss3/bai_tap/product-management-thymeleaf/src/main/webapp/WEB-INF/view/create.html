@@ -9,7 +9,30 @@
   <div class="sidebar" th:replace="/layout :: sidebar"></div>
     <div class="main">
     <div class="top-bar" th:replace="/top-bar.html :: top-bar"></div>
-    <div class="wrapper" th:replace="/input.html :: wrapper"></div>
+      <div class="wrapper" >
+        <div class="title">Form Input Product </div>
+        <form class="form" th:action="@{/product/save}" th:object="${product}" method="post" novalidate="novalidate">
+          <div class="input_field">
+            <label>Product ID</label>
+            <input type="text" th:field="*{id}" class="input">
+          </div>
+          <div class="input_field">
+            <label>Product Name</label>
+            <input type="text" th:field="*{name}" class="input">
+          </div>
+          <div class="input_field">
+            <label>Price</label>
+            <input type="text" th:field="*{price}" class="input">
+          </div>
+          <div class="input_field">
+            <label>Description</label>
+            <input type="text" th:field="*{description}" class="input">
+          </div>
+          <div class="input_field">
+            <input type="submit" value="Enter" class="btn">
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 

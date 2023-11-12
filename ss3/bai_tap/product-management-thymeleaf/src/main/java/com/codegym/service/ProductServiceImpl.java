@@ -21,14 +21,14 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void add(Product product) {
         if (!listProducts.containsKey(product.getId())) {
-            listProducts.remove(product.getId());
+            listProducts.put(product.getId(),product);
         }
     }
 
     @Override
     public void update(String id, Product product) {
         if (listProducts.containsKey(product.getId())) {
-            listProducts.remove(product.getId());
+            listProducts.put(product.getId(),product);
         }
     }
 

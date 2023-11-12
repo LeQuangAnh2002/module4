@@ -9,7 +9,63 @@
     <div class="sidebar" th:replace="/layout.html :: sidebar"></div>
     <div class="main">
         <div class="top-bar" th:replace="/top-bar.html :: top-bar"></div>
-        <div class="tables" th:replace="/table.html :: table(${products})"></div>
+        <div class="tables">
+            <div class="heading">
+
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="Search here">
+                    <label for="search"><i class="fas fa-search"></i></label>
+                </div>
+                <a th:href="@{/product/create}" class="btn">Create Product</a>
+            </div>
+            <div class="notify">
+                <div th:if="${message != null}">
+                    <span th:text="${message}"></span>
+                </div>
+            </div>
+            <div class="content">
+                <table class="users">
+                    <thead>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Description</td>
+                    <td>Producer</td>
+                    <td>Action</td>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.id}"></td>
+                        <td th:text="${product.name}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.description}"></td>
+                        <td th:text="${product.producer}"></td>
+                        <td>
+
+                            <a th:href="@{/product/{id}/detail(id=${product.id})}"><i class="far fa-eye"></i></a>
+
+                            <a th:href="@{/product/{id}/edit(id=${product.id})}"> <i class="far fa-edit"></i></a>
+
+                            <a th:href="@{/product/{id}/delete(id=${product.id})}"><i class="far fa-trash-alt"></i></a>
+
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="page">
+                <ul class="pagination">
+                    <li><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li><a>6</a></li>
+                </ul>
+            </div>
+        </div>
 
     </div>
 
