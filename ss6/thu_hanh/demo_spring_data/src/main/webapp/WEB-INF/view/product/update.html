@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create product</title>
+    <title>Update product</title>
 </head>
 <body>
     <h1>Create new product</h1>
-    <form th:action="@{/product/create}" method="post" th:object="${product}">
+    <form th:action="@{/product/update}" method="post" th:object="${product}">
         <table>
             <tr>
                 <td>ID</td>
@@ -21,7 +21,8 @@
                 <td>
                     <select th:field="*{category.categoryId}">
                         <option th:each="c: ${categories}" th:value="${c.categoryId}"
-                            th:text="${c.categoryName}"></option>
+                            th:text="${c.categoryName}"
+                            th:selected="${product.category.categoryId == c.categoryId}"></option>
                     </select>
                 </td>
             </tr>
@@ -31,7 +32,7 @@
             </tr>
             <tr>
                 <td>Date release</td>
-                <td><input type="date" th:field="*{dateRelease}" placeholder="dd/MM/yyyy" /></td>
+                <td><input type="text" th:field="*{dateRelease}" placeholder="dd/MM/yyyy" /></td>
             </tr>
             <tr>
                 <td>Price</td>
@@ -39,7 +40,7 @@
             </tr>
             <tr>
                 <td><input type="reset" value="Reset"></td>
-                <td><input type="submit" value="Register"></td>
+                <td><input type="submit" value="Update"></td>
             </tr>
         </table>
     </form>

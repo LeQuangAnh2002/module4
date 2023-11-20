@@ -52,4 +52,28 @@ public class ProductRepositoryImpl implements ProductRepository {
         entityManager.remove(findById(id));
         return true;
     }
+
+    @Override
+    public List<Product> findAllByName(String name) {
+
+        // Truyền param vào theo tên của param
+//        List<Product> products =
+//                entityManager.createQuery("From Product  p " +
+//                        "where p.name like :name")
+//                        .setParameter("name", "%" + name + "%")
+//                        .getResultList();
+        // Truyền param vào theo vị trí của param
+//        List<Product> products =
+//                entityManager.createQuery("From Product  p " +
+//                                "where p.name like ?1")
+//                        .setParameter(1, "%" + name + "%")
+//                        .getResultList();
+
+        // Sử dụng câu query tĩnh
+        List<Product> products =
+                entityManager.createNamedQuery("findProductByName")
+                        .setParameter("name", "%" + name + "%")
+                        .getResultList();
+        return products;
+    }
 }
