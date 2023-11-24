@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail product</title>
+</head>
+<body>
+<h1 >Detail Post</h1>
+<table th:object="${post}">
+  <tr>
+    <td>ID:</td>
+    <td th:text="*{id}"></td>
+  </tr>
+  <tr>
+    <td>Title:</td>
+    <td th:text="*{title}"></td>
+  </tr>
+  <tr>
+    <td>Content:</td>
+    <td th:text="*{content}"></td>
+  </tr>
+  <tr>
+    <td>Category:</td>
+    <td th:text="${post.category.name}"></td>
+  </tr>
+  <tr>
+    <td>Author:</td>
+    <td th:text="${post.author.name}"></td>
+  </tr>
+</table>
+<a th:text="|Back to list|" th:href="@{/post/list}"></a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:text="${#locale.setDefault('vn')}"></div>
+<a th:href="@{/post/create}">Create new post </a>
+<form th:action="@{/post/search}" method="get">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="post_title" />
+    <input type="submit" value="Search" />
+</form>
+<div th:text="${#locale.setDefault('vn')}"></div>
+
+
+<form th:action="@{/post/findAllCategories}" method="get" id="changeCategory">
+    <select name="idCategory" onchange="loadCategory();">
+        <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+    </select>
+</form>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="p: ${posts}" th:object="${p}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{title}"></td>
+        <td th:text="*{category.name}"></td>
+        <td th:text="*{author.name}"></td>
+
+
+        <td>
+            <a th:href="@{/post/detail/{id}(id=*{id})}">Detail</a>
+            <a th:href="@{/post/update/{id}(id=*{id})}">Update</a>
+            <a th:href="@{/post/delete/{id}(id=*{id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<div>
+    <span th:each=" p: ${pageNumbers}">
+        <a th:text="${p}" th:if="${p != posts.getNumber() +1}" th:href="@{/post/list(page=${p},pageSize=${pageSize})}"></a>
+        <span th:text="${p}" th:if="${p == posts.getNumber() +1}"></span>
+    </span>
+</div>
+<script>
+    function loadCategory() {
+        document.getElementById("changeCategory").submit();
+    }
+</script>
+</body>
+</html>
