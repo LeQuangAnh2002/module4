@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Book</title>
+</head>
+<body>
+<h1 >Detail Book</h1>
+<form th:action="@{/card/borrowedBook}" method="get" th:object="${LibraryCard}">
+<table th:object="${book}">
+  <tr>
+    <td>ID:</td>
+    <td th:text="*{idBook}" ></td>
+  <input type="hidden" th:value="*{idBook}" name="idBook">
+  </tr>
+  <tr>
+    <td>Name Book :</td>
+    <td th:text="*{name}"></td>
+
+      <input type="hidden"  th:value="*{name}" name="bookName">
+
+  </tr>
+  <tr>
+    <td>Author:</td>
+    <td th:text="*{author}"></td>
+  </tr>
+  <tr>
+    <td>Price:</td>
+    <td th:text="*{price}"></td>
+  </tr>
+  <tr>
+    <td>Quantity:</td>
+    <td >
+      <input th:field="${LibraryCard.quantity}" type="number" value="1">
+    </td>
+  </tr>
+  <tr>
+    <td>Borrowed Date:</td>
+    <td >
+      <input th:field="${LibraryCard.borrowedDate}" name="borrowedDate" type="date" >
+    </td>
+  </tr>
+
+  <tr>
+  <td>Pay Date:</td>
+  <td >
+    <input th:field="${LibraryCard.payDate}" name="payDate" type="date" >
+  </td>
+
+  </tr>
+
+  <tr>
+    <td>Borrowed Name:</td>
+    <td >
+      <input th:field="${LibraryCard.borrowedName}" name="borrowedName" type="text">
+    </td>
+
+  </tr>
+</table>
+<!--<a th:text="|Borrowed Book|" th:href="@{/card/borrowedBook}"></a>-->
+  <input type="submit" value="Borrow Book">
+<a th:text="|Back to list|" th:href="@{/card}"></a>
+</form>
+</body>
+</html>

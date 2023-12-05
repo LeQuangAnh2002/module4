@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrow Book</title>
+</head>
+<body>
+<form >
+    <label>
+        Search by code book:
+        <input type="text" name="s">
+    </label>
+    <input type="submit" value="Search">
+</form>
+
+<table >
+    <caption>Borrow Book</caption>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Borrowed Date</th>
+        <th>Pay Date</th>
+        <th>Quantity</th>
+        <th>Borrowed Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="l : ${libraryCards}">
+        <td th:text="${l.idBook}"></td>
+        <td th:text="${l.bookName}"></td>
+        <td th:text="${#dates.format(l.borrowedDate,'dd/MM/yyyy')}"></td>
+        <td th:text="${#dates.format(l.payDate,'dd/MM/yyyy')}"></td>
+        <td th:text="${l.quantity}"></td>
+        <td th:text="${l.borrowedName}"></td>
+
+        <td>
+            <a th:href="@{/card/payBook(id=${l.idBook},quantity=${l.quantity})}">Pay Book</a>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

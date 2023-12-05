@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+    <style>
+        table {
+            border: 1px solid #000;
+        }
+
+        th, td {
+            border: 1px dotted #555;
+        }
+    </style>
+</head>
+<body>
+<form >
+    <label>
+        Search by name or book:
+        <input type="text" name="s">
+    </label>
+    <input type="submit" value="Search">
+</form>
+<table>
+    <caption>Book List</caption>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="b : ${books}">
+        <td th:text="${b.idBook}"></td>
+        <td>
+            <a th:href="@{/card/{id}(id=${b.idBook})}" th:text="${b.name}"></a>
+        </td>
+        <td th:text="${b.author}"></td>
+        <td th:text="${b.price}"></td>
+        <td th:text="${b.quantity}">
+            <input type="text"  th:value="*{b.quantity}" name="quantity">
+        </td>
+
+        <td>
+                <a th:href="@{/card/{id}(id=${b.idBook})}">Borrow Book</a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
