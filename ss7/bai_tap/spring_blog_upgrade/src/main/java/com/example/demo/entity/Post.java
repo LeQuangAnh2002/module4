@@ -1,9 +1,13 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "post")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -14,9 +18,11 @@ public class Post {
     private String content;
     @ManyToOne
     @JoinColumn(name = "author_id")
+    @JsonManagedReference
     private Author author;
     @ManyToOne
     @JoinColumn(name = "category_ID")
+    @JsonManagedReference
     private Category category;
 
     public Post() {

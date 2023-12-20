@@ -36,10 +36,10 @@ public class LibraryCardController {
         return "detail";
     }
     @GetMapping("/borrowedBook")
-    public String borrowedBook(Model model,@RequestParam(name="idBook") int idBook, @RequestParam(value = "quantity",defaultValue = "1" ,required = false) int quantity,
+    public String borrowedBook(Model model,@RequestParam(name="idBook") int idBook, @RequestParam(name = "quantity",defaultValue = "1" ,required = false) int quantity,
                                @ModelAttribute("LibraryCard") LibraryCard libraryCard,@RequestParam(name="bookName") String bookName) throws ClassNotFoundException {
         Detail detail = new Detail();
-        if(idBook > 0 && bookService.checkQuantityBook(idBook)){
+        if(idBook > 0 && bookService.checkQuantityBook(idBook) && quantity >0){
             bookService.decreaseBookQuantity(idBook,quantity);
             libraryCard.setIdBook(libraryCardServie.generateBorrowCode());
             libraryCard.setBookName(bookName);

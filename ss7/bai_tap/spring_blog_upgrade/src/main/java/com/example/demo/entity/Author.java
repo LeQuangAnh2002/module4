@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class Author {
     @Column( columnDefinition = "varchar(25)")
     private String name;
     @OneToMany(mappedBy = "author")
+    @JsonBackReference
     private List<Post> posts;
 
     public Author() {

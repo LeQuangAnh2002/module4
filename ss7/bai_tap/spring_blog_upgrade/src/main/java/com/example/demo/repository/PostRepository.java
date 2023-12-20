@@ -16,6 +16,7 @@ public interface PostRepository extends JpaRepository<Post,Integer>
     public  Page<Post> searchByTitleContaining(String title, Pageable pageable);
     @Query("From Post p where p.title like :title")
     public Page<Post> searchByTitle(@Param("title") String title, Pageable pageable);
-
+    @Query("From Post p where p.category.id = :categoryId")
+    public List<Post> getCategoryPost(@Param("categoryId") int categoryId);
 
 }
