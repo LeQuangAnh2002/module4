@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments :: header">
+
+
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul th:replace="/fragments :: sidebar">
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="/fragments :: topbar">
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+<!--                <div class="card-header py-3">-->
+<!--                    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>-->
+<!--                </div>-->
+                <div class="card-body">
+                    <div class="table-responsive" style="overflow-x: hidden;">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 ">
+                                <div class="dataTables_length" id="dataTable_length">
+                                    <label>Show
+                                        <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm" style="width: auto; display: inline-block;">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select> entries</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div id="dataTable_filter" class="dataTables_filter" style="text-align: right;">
+                                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable" style="margin-left: 0.5em; display: inline-block; width: auto;">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div th:if="${size == 0}">
+                            <p>No products in shop</p>
+                        </div>
+                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add new product</button>
+                        <div th:href="@{add-product}" th:if="${success}" class="text-center alert alert-success mb-3 mt-3">
+                            <p th:text="${success}"></p>
+                        </div>
+                        <div th:if="${failed}" class="text-center alert alert-danger mb-3 mt-3">
+                            <p th:text="${failed}"></p>
+                        </div>
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" th:if="${size > 0}">
+                            <thead>
+                            <tr >
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Image</th>
+                                <th>Update</th>
+                                <th>Action </th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="prodcut : ${products}">
+                                <td th:text="${prodcut.name}"></td>
+                                <td th:text="${prodcut.category.name}"></td>
+                                <td th:text="${prodcut.costPrice}"></td>
+                                <td th:text="${prodcut.currentQuantity}"></td>
+                                <td >
+                                    <img></img>
+                                </td>
+                                <td>
+                                    <a id="editButton"  class="btn btn-primary">Update</a>
+                                </td>
+                                <td>
+                                    <a   class="btn btn-warning">Delete</a>
+                                    <a   class="btn btn-primary">Enable</a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer th:replace="/fragments :: footer">
+
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a th:replace="/fragments :: scroll">
+</a>
+
+<!-- Logout Modal-->
+<div th:replace="/fragments :: LogoutModal"></div>
+<!--&lt;!&ndash;   Add Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <form th:action="@{/add-category}" th:object="${categoryNew}" method="post" >-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">New Category</h5>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="recipient-name" class="col-form-label">Recipient:</label>-->
+<!--                        <input type="text" class="form-control" id="name" name="name" th:field="*{name}">-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                <button type="submit" class="btn btn-primary">Send message</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    </form>-->
+<!--</div>-->
+<!--&lt;!&ndash;    End &ndash;&gt;-->
+<!--&lt;!&ndash;Change Name Category&ndash;&gt;-->
+<!--<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalExample" aria-hidden="true">-->
+<!--    <form th:action="@{/update-category}" method="put">-->
+<!--        <div class="modal-dialog" role="document">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" >Edit Category</h5>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    <div class="form-group">-->
+<!--                            <label for="idEdit" class="col-form-label">ID:</label>-->
+<!--                        <input type="text" class="form-control" id="idEdit" name="id" readonly >-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="nameEdit" class="col-form-label">Name:</label>-->
+<!--                        <input type="text" class="form-control" id="nameEdit" name="name" >-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                    <button type="submit" class="btn btn-primary">Send message</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+<div th:replace="/fragments ::script"></div>
+<script th:src="@{/js/categories.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/employee/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" >
+    <div class="sidebar" th:replace="/employee/layout :: sidebar"></div>
+    <div class="main">
+        <div class="top-bar" th:replace="/employee/top-bar.html :: top-bar"></div>
+        <div class="wrapper" >
+            <div class="title">Form Input Employee </div>
+            <form class="form" th:action="@{/employee/add}" th:object="${employee}" method="post" novalidate="novalidate">
+                <div class="input_field">
+                    <label>Họ và Tên</label>
+                        <input type="text" th:field="*{name}" class="input">
+                        <span style="color: red"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div>
+
+                <div class="input_field">
+                    <label>Ngày Sinh</label>
+                    <input type="date" th:field="*{birthDay}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('birthDay')}" th:errors="*{birthDay}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Salary</label>
+
+                    <input type="text" th:field="*{salary}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Phone</label>
+
+                    <input type="text" th:field="*{phone}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>CCCD</label>
+
+                    <input type="text" th:field="*{idCard}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Email</label>
+
+                    <input type="text" th:field="*{email}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Address</label>
+
+                    <input type="text" th:field="*{address}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Position</label>
+                    <select class="input" id="position" th:field="*{position}">
+                        <option th:each="p:${positions}" th:text="${p.name}" th:value="${p.id}"></option>
+                    </select>
+                </div>
+                <div class="input_field">
+                    <label>Education</label>
+                    <select class="input" id="education" th:field="*{educationDegree}">
+                        <option th:each="p:${educationDegrees}" th:text="${p.name}" th:value="${p.id}"></option>
+                    </select>
+                </div>
+                <div class="input_field">
+                    <label>Education</label>
+                    <select class="input" id="division" th:field="*{division}">
+                        <option th:each="p:${divisions}" th:text="${p.name}" th:value="${p.id}"></option>
+                    </select>
+                </div>
+                <div class="input_field">
+                    <input type="submit" value="Enter" class="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

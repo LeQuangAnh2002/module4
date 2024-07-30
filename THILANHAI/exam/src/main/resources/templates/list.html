@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout.html :: head">
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div class="container" >
+    <div class="sidebar" th:replace="/layout.html :: sidebar"></div>
+    <div class="main">
+        <div class="top-bar" th:replace="/top-bar.html :: top-bar"></div>
+        <div class="tables">
+            <div class="heading">
+
+<!--                <div class="search">-->
+<!--                    <form th:action="" method="get">-->
+<!--                    <input type="text" name="search" id="search" placeholder="Search here">-->
+<!--                    <label for="search">-->
+
+<!--                            <input type="submit" value="Search" class="input-search">-->
+
+<!--                    </label>-->
+<!--                    </form>-->
+<!--                </div>-->
+                <a th:href="@{/du-an/add}" class="btn">Create Dự Án</a>
+            </div>
+            <div class="notify">
+                <div th:if="${message != null}">
+                    <span th:text="${message}"></span>
+                </div>
+            </div>
+            <div class="content">
+                <table class="users">
+                    <thead>
+                    <td>ID</td>
+                    <td>Tên Dự Án</td>
+                    <td>Tên Doanh Nghiệp</td>
+                    <td>Kinh phí yêu cầu</td>
+                    <td>Thời gian đăng kí</td>
+                    <td>Ngày Đăng kí</td>
+
+                    <td>Action</td>
+
+
+                    </thead>
+                    <tbody>
+                    <tr th:each="d : ${duAnList}">
+                        <td th:text="${d.id}"></td>
+                        <td th:text="${d.tenDuAn}"></td>
+                        <td th:text="${d.doanhNghiep.tenDoanhNghiep}"></td>
+                        <td th:text="${#numbers.formatCurrency(d.kinhPhi).replace('¤', 'VND').replace(',00','')}"></td>
+                        <td th:text="${d.thoiGian}"></td>
+                        <td th:text="*{#dates.format(d.ngayDangKi, 'dd/MM/yyyy')}"></td>
+
+
+                        <td>
+
+                            <a th:href="@{/du-an/detail/{id}(id=${d.id})}"><i class="far fa-eye"></i></a>
+
+
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="page">
+                <a th:href="@{/du-an/list(page=${duAnList.number })}" th:if="${duAnList.hasPrevious()}" >Previous</a>
+                <ul class="pagination" th:each="i : ${pageNumbers}">
+                    <li><a th:text="${i}" th:href="@{/du-an/list(page=${i},pageSize=${pageSize})}"></a></li>
+
+                </ul>
+                <a th:href="@{/du-an/list(page=${duAnList.number + 2})}" th:if="${duAnList.hasNext()}">Next</a>
+<!--                    <a th:href="@{/post/list(page=${posts.number })}" th:if="${posts.hasPrevious()}" th:disabled="${!posts.hasPrevious()}">Previous</a>
+    <span th:each=" p: ${pageNumbers}">
+        <a th:text="${p}"  th:href="@{/post/list(page=${p},pageSize=${pageSize})}"></a>
+    </span>
+    <a th:href="@{/post/list(page=${posts.number + 2})}" th:if="${posts.hasNext()}">Next</a>-->
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

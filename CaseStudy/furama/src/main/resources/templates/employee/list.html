@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/employee/layout.html :: head">
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div class="container" >
+    <div class="sidebar" th:replace="/employee/layout.html :: sidebar"></div>
+    <div class="main">
+        <div class="top-bar" th:replace="/employee/top-bar.html :: top-bar"></div>
+        <div class="tables">
+            <div class="heading">
+
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="Search here">
+                    <label for="search"><i class="fas fa-search"></i></label>
+                </div>
+                <a th:href="@{/employee/add}" class="btn">Create Product</a>
+            </div>
+            <div class="notify">
+                <div th:if="${message != null}">
+                    <span th:text="${message}"></span>
+                </div>
+            </div>
+            <div class="content">
+                <table class="users">
+                    <thead>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Birthday</td>
+                    <td>CCCD/CMND</td>
+                    <td>Salary</td>
+                    <td>Phone</td>
+                    <td>Email</td>
+                    <td>Address</td>
+                    <td>Action</td>
+                    </thead>
+                    <tbody>
+                    <tr th:each="e : ${employees}">
+                        <td th:text="${e.id}"></td>
+                        <td th:text="${e.name}"></td>
+                        <td th:text="${e.birthDay}"></td>
+                        <td th:text="${e.idCard}"></td>
+                        <td th:text="${e.salary}"></td>
+                        <td th:text="${e.phone}"></td>
+                        <td th:text="${e.email}"></td>
+                        <td th:text="${e.address}"></td>
+                        <td>
+
+                            <a th:href="@{/employee/detail/{id}(id=${e.id})}"><i class="far fa-eye"></i></a>
+
+                            <a th:href="@{/employee/edit/{id}(id=${e.id})}"> <i class="far fa-edit"></i></a>
+
+                            <a th:href="@{/employee/delete/{id}(id=${e.id})}"><i class="far fa-trash-alt"></i></a>
+
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="page">
+                <ul class="pagination" th:each="i : ${pageNumbers}">
+                    <li><a th:text="${i}" th:href="@{/employee/list(page=${i},pageSize=${pageSize})}"></a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

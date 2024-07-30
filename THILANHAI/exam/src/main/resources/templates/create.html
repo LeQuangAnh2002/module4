@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" >
+    <div class="sidebar" th:replace="/layout :: sidebar"></div>
+    <div class="main">
+        <div class="top-bar" th:replace="/top-bar.html :: top-bar"></div>
+        <div class="wrapper" >
+            <div class="title">Form Input Employee </div>
+            <form class="form" th:action="@{/du-an/add}" th:object="${duAn}" method="post" novalidate="novalidate">
+                <div class="input_field">
+                    <label>Mã dự án</label>
+                    <input type="text" th:field="*{id}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+                </div>
+                <div class="input_field">
+                    <label>Tên Doanh Nghiệp</label>
+                    <select class="input" id="position" th:field="*{doanhNghiep}">
+                        <option th:each="d:${doanhNghieps}" th:text="${d.tenDoanhNghiep}" th:value="${d.id}"></option>
+                    </select>
+                </div>
+                <div class="input_field">
+                    <label>Tên dự án</label>
+                    <input type="text" th:field="*{tenDuAn}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('tenDuAn')}" th:errors="*{tenDuAn}"></span>
+                </div>
+                <div class="input_field">
+                    <label>Ngày Đăng Ký</label>
+                    <input type="text"  class="input"  th:value="${#dates.format(#dates.createNow(), 'dd-MM-yyyy')}" readonly>
+                    <input type="hidden"  class="input" name="ngayDangKi"  th:value="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" >
+
+                    <span style="color: red"  th:if="${#fields.hasErrors('ngayDangKi')}" th:errors="*{ngayDangKi}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Kinh Phí</label>
+
+                    <input type="text" th:field="*{kinhPhi}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('kinhPhi')}" th:errors="*{kinhPhi}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Thời gian đăng ký giới thiệu</label>
+
+                    <input type="number" th:field="*{thoiGian}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('thoiGian')}" th:errors="*{thoiGian}"></span>
+
+                </div>
+                <div class="input_field">
+                    <label>Mô tả dự án</label>
+
+                    <input type="text" th:field="*{moTa}" class="input">
+                    <span style="color: red"  th:if="${#fields.hasErrors('moTa')}" th:errors="*{moTa}"></span>
+
+                </div>
+                <div class="input_field">
+                    <input type="submit" value="Enter" class="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
